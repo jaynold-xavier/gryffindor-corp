@@ -1,0 +1,14 @@
+table thead{
+        font-weight: bolder;
+        color: aquamarine;
+}
+
+table{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: cornsilk;
+}
+
+table tbody tr:hover{
+        cursor: pointer;
+        color: hotpink;
+}

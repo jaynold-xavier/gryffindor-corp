@@ -1,0 +1,52 @@
+<form #empForm="ngForm" action="/employees" method="POST" (ngSubmit)="update? updateEmployee(): addEmployee()">
+
+        <div class="form-group">
+                <label for="name">NAME:</label>
+                <input type="text" [(ngModel)]="emp.name" minlength="5" required name="name" class="form-control"
+                        placeholder="Enter your name here" #name="ngModel">
+        </div>
+
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                <div *ngIf="name.errors.required">
+                        Name is required.
+                </div>
+                <div *ngIf="name.errors.minlength">
+                        Name must be at least 5 characters long.
+                </div>
+        </div>
+
+        <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" required appAgeCheck [(ngModel)]="emp.age" min='5' name="age" class="form-control"
+                        placeholder="Enter your age here" #age="ngModel">
+        </div>
+
+        <div *ngIf="age.invalid && (age.dirty || age.touched)" class="alert alert-danger">
+                <div *ngIf="age.errors?.incorrectAge">
+                        Age must be between 18-60
+                </div>
+        </div>
+
+        <div class="form-check form-check-inline">
+                GENDER:&nbsp;&nbsp;&nbsp;
+                <input class="form-check-input" [(ngModel)]="emp.gender" type="radio" name="gender" value="male"
+                        required #gender="ngModel">Male
+                &nbsp;&nbsp;&nbsp;<input class="form-check-input" [(ngModel)]="emp.gender" type="radio" name="gender"
+                        value="female" required #gender="ngModel"> FEMALE
+        </div>
+
+        <br><br>
+
+        <div class="alert alert-danger" *ngIf="gender.touched && gender.invalid">
+                Gender is required
+        </div>
+        <span *ngIf="!update">
+                <button type="submit" class="btn btn-primary"
+                        [disabled]="!empForm.form.valid">SUBMIT</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+        <span *ngIf="update">
+                <button type="submit" class="btn btn-warning"
+                        [disabled]="!empForm.form.valid">UPDATE</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+        <button type="reset" class="btn btn-info">RESET</button>
+</form>

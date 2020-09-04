@@ -1,0 +1,26 @@
+<div class="container" style="text-align: center;">
+        <div class="card bg-info text-white">
+                <div class="card-body">
+                        {{'welcome' | uppercase}}<br>My name is <b>{{ang_name | uppercase}}</b><br>What's yours??
+                </div>
+        </div><br>
+
+        <app-greeting [host_name] = ang_name (onFetchName) = "getName($event)"></app-greeting>
+        <br>
+
+        <div class="card" style="width:40%" *ngIf="guest!=''">
+                
+                <img class="card-img-top" src="assets/images/img_avatar1.png" alt="Card image" style="width:100%">
+                <div class="card-body" style="color: black;">
+                        <h4 class="card-title"><b>{{ guest | uppercase }}</b></h4>
+                        <p class="card-text">Some example text some example text. <b>{{ guest | uppercase }}</b> is an architect and engineer</p>
+                        <a href="#" class="btn btn-primary">See Profile</a>
+                </div><br>
+
+                <div class="card bg-success">
+                        <div class="card-body text-center">
+                                <p class="card-text">Hi <b>{{ guest | uppercase }}</b>, Nice to meet you!!</p>
+                        </div>
+                </div>
+        </div>
+</div>

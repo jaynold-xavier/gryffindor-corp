@@ -1,0 +1,12 @@
+<div class="card text-white bg-primary">
+  <img class="card-img-top" src="holder.js/100px180/" alt="">
+  <div class="card-body">
+    <h4 class="card-title">Greetings, {{ host_name | uppercase }}</h4>
+    <p class="card-text">
+        Would you like a sneak peak at my profile?<br>
+        <input type="radio" name="my_name" [(ngModel)]="tellName" [value]="true">YES
+        <input type="radio" name="my_name" [(ngModel)]="tellName" [value]="false">NO
+    </p>
+    <button type="button" class="btn btn-warning" [disabled] = '!tellName' (click)="fireSendNameEvent($event)">SEE PROFILE</button>
+  </div>
+</div>

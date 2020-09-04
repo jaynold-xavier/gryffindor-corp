@@ -1,0 +1,14 @@
+<div class="card" style="width:30%" *ngIf="guest!=''">                
+        <img class="card-img-top" [src]="(emp | async)?.gender=='male'?imgs[0]:imgs[1]" alt="Card image" style="width:100%">
+        <div class="card-body" style="color: black;">
+                <h4 class="card-title" style="color: crimson;"><b>{{ (emp | async)?.name }}</b></h4>
+                <p class="card-text">
+                        Your Details: <br>
+                        <b>ID: </b> {{id}} <br>
+                        <b>Name: </b>{{ (emp | async)?.name }} <br>
+                        <b>Age: </b>{{ (emp | async)?.age }} <br>
+                        <b>Gender: </b>{{ (emp | async)?.gender | uppercase }} <br>
+                </p>
+                <button class="btn btn-warning" (click)="goUpdate()">UPDATE</button>
+        </div>
+</div>

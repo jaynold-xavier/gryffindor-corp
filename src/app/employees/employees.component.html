@@ -1,0 +1,22 @@
+<div class="form-group">
+  <input type="text" class="form-control" [(ngModel)]="term" name='search+term' placeholder="Search Employee By Name">
+</div>
+<table class="table table-hover table-inverse table-responsive">
+        <thead class="thead-inverse">
+                <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th></th>
+                </tr>
+        </thead>
+        <tbody>
+                <tr *ngFor="let item of (emps | async | searchEmployee:term)" (click)="seeEmployeeeDetails(item.key)">
+                        <td scope="row">{{item.key}}</td>
+                        <td>{{item.payload.val().name}}</td>
+                        <td>{{item.payload.val().age}}</td>
+                        <td (click)="false"><button class="btn btn-danger" (click)="deleteEmployee(item.key)">DELETE</button></td>
+                </tr>
+        </tbody>
+</table>
+{{info}}

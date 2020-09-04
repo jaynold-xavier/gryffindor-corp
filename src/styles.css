@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+        background: url('assets/images/venom.jpg');
+        font-size: 3vh;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#subhead{
+        color: coral;
+        text-transform: uppercase;
+        text-decoration: overline;
+}
